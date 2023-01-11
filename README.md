@@ -13,3 +13,6 @@ Autogestión del cambio de Avatar por el usuario (el primero debe ser asignado p
 ABM de posteos para los usuarios registrados
 Envio de mensajes solo para usuarios registrados
 Visualización y borrado de mensajes para usuarios registrados
+
+
+link para ver el video https://youtu.be/jomfLjtB5RA
