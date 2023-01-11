@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from blogcab.views import index, PostListar, PostCrear, PostDetalle, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout
+from blogcab.views import index, PostListar, PostCrear, PostDetalle, PostBorrar, PostActualizar, UserSignUp, UserLogin, UserLogout, AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,13 @@ urlpatterns = [
     path('blogcab/signup/', UserSignUp.as_view(), name="blogcab-signup"),
     path('blogcab/login/', UserLogin.as_view(), name="blogcab-login"),
     path('blogcab/logout/', UserLogout.as_view(), name="blogcab-logout"),
+    path('blogcab/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="blogcab-avatars-actualizar"),
+    path('blogcab/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="blogcab-users-actualizar"),
+    path('blogcab/mensajes/crear/', MensajeCrear.as_view(), name="blogcab-mensajes-crear"),
+    path('blogcab/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="blogcab-mensajes-detalle"),
+    path('blogcab/mensajes/listar/', MensajeListar.as_view(), name="blogcab-mensajes-listar"),
+    path('blogcab/mensaje/<int:pk>/borrar/', MensajeBorrar.as_view(), name="blogcab-mensajes-borrar"),
+    path('blogcab/about', about, name="blogcab-about"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

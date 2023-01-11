@@ -1,7 +1,7 @@
 {% extends 'blogcab/base.html' %}
 
 {% block contenido %}
-  <h3>Está seguro que quiere borrar el blog {{object.titulo}}?</h3>
+  <h3>Está seguro que quiere borrar el mensaje?</h3>
   <form class="container my-3" method="POST">
     {% csrf_token %}
     {{form.as_p}}

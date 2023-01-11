@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Blog Home - Start Bootstrap Template</title>
+        <title>El Blog de Banfield</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -16,16 +16,23 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'blogcab-index' %}">Start Bootstrap</a>
+                <a class="navbar-brand" href="{% url 'blogcab-index' %}">
+                    El Blog de Banfield
+                    <img class="px-2" height="40px" src="{% static 'blogcab/assets/logo.png' %}" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                         <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-index' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-listar' %}">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-mensajes-crear' %}">Contacto</a></li>
                         {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-listar' %}">Admin Blogs</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-logout' %}">Salir</a></li>
+                        <li><img src="{{user.avatar.imagen.url}}" height="64px" style="border-radius: 50%;"></li>
+                        {% if user.first_name %}
+                            <p class="text-light m-0 nav-link">Hola {{user.first_name}}!</p>
+                        {% endif %}
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-signup' %}">Registrarse</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'blogcab-login' %}">Ingresar</a></li>
@@ -38,8 +45,7 @@
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <h1 class="fw-bolder">El Blog de Banfield</h1>
                 </div>
             </div>
         </header>

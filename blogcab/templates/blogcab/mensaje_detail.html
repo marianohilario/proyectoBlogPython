@@ -1,0 +1,11 @@
+{% extends 'blogcab/base.html' %}
+
+{% block contenido %}
+  <h4>{{object.fecha}}</h4>
+  <h4>{{object.nombre}}</h4>
+  <h4>{{object.email}}</h4>
+  <div>
+    {{object.texto}}
+  </div>
+
+{% endblock %}
